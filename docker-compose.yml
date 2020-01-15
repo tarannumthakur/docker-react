@@ -1,0 +1,11 @@
+version: '3'
+services: 
+    web:
+      build:
+        context: .                  #to look file inside the current project directory
+        dockerfile: Dockerfile.dev  #specifying explicitly beacuse we using dockerfile.dev instead fo dockerfile
+      ports: 
+        - "3000:3000"           #mapping the port
+      volumes: 
+        - /app/node_modules    #bookmark node_moudles for not mapping  with node_moudles inside the project
+        - .:/app               # mapping everyhting inside container to project to lookout for changes

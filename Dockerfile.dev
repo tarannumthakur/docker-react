@@ -1,0 +1,17 @@
+#Getting base image
+FROM node:alpine
+
+#changing or creating image current working directory
+WORKDIR /app
+
+#copying file to image current working directory
+COPY package.json .
+
+#running command
+RUN npm install
+
+#coying everything form current directory to image current directory
+COPY . .
+
+#setting up startup command for container
+CMD ["npm","run","start"]
